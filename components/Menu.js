@@ -7,19 +7,23 @@ import useIsAuth from '../hooks';
 const MenuContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   width: 100%;
   height: 40px;
   background-color: ${(props) => props.theme.background};
 `;
 
 const MenuButton = styled.button`
+  height: 21px;
   border: none;
+  font-size: 16px;
   color: ${(props) => props.theme.principal};
   padding: 0 10px;
   position: relative;
   cursor: pointer;
-  width: 70px;
+  min-width: 70px;
   transition: all 0.2s;
+  margin-right: 8px;
 
   &:hover {
     color: ${(props) => props.theme.principalDark};
@@ -50,6 +54,9 @@ function Menu() {
   }
   return (
     <MenuContainer>
+      <MenuButton>
+        {isOnline ? isOnline?.user.user_metadata.full_name : ''}
+      </MenuButton>
       {isOnline ? (
         <MenuButton onClick={signout}>Salir</MenuButton>
       ) : (

@@ -51,7 +51,6 @@ const Discount = styled.span`
 `;
 
 function Card({ name, price, imageURL, discount }) {
-  console.log({ name, price, imageURL, discount });
   return (
     <Container>
       <Img alt='Hey Arnold Porcelana' src={imageURL} width={250} height={300} />
