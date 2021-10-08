@@ -23,6 +23,7 @@ const Home = () => {
       .eq('habilitado', true);
 
     setCursos(cursos);
+    console.log(cursos);
   };
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const Home = () => {
             name={curso.name}
             price={curso.price}
             imageURL={curso.imageUrl}
-            discount={curso.discount}
+            discount={curso.discountPrice}
           />
         ))}
       </CardContainer>
