@@ -15,6 +15,15 @@ const CardContainer = styled.div`
 `;
 
 const Home: NextPage = () => {
+  const getCourses = async () => {
+    let { data: cursos, error } = await supabase.from('cursos').select('*');
+
+    console.log(data);
+  };
+
+  useEffect(() => {
+    getCourses();
+  }, []);
   return (
     <div className={styles.container}>
       <Head>
