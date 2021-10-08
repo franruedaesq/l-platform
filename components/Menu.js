@@ -54,9 +54,11 @@ function Menu() {
   }
   return (
     <MenuContainer>
-      <MenuButton>
-        {isOnline ? isOnline?.user.user_metadata.full_name : ''}
-      </MenuButton>
+      {isOnline ? (
+        <MenuButton>{isOnline?.user.user_metadata.full_name}</MenuButton>
+      ) : (
+        ''
+      )}
       {isOnline ? (
         <MenuButton onClick={signout}>Salir</MenuButton>
       ) : (
