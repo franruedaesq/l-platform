@@ -1,7 +1,18 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
+import { supabase } from '../supabase';
+import useIsAuth from '../hooks/index';
+import Card from '../components/Card';
+import styled from 'styled-components';
+
+const CardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +23,11 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <h1>L-Platform</h1>
+      <CardContainer>
+        <Card />
+        <Card />
+        <Card />
+      </CardContainer>
     </div>
   );
 };
