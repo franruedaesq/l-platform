@@ -1,4 +1,3 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -14,7 +13,7 @@ const CardContainer = styled.div`
   justify-content: center;
 `;
 
-const Home: NextPage = () => {
+const Home = () => {
   const [cursos, setCursos] = useState([]);
 
   const getCourses = async () => {
