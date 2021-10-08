@@ -15,10 +15,15 @@ const CardContainer = styled.div`
 `;
 
 const Home: NextPage = () => {
-  const getCourses = async () => {
-    let { data: cursos, error } = await supabase.from('cursos').select('*');
+  const [cursos, setCursos] = useState([]);
 
-    console.log(data);
+  const getCourses = async () => {
+    let { data: cursos, error } = await supabase
+      .from('cursos')
+      .select('*')
+      .eq('habilitado', true);
+
+    setCursos(cursos);
   };
 
   useEffect(() => {
@@ -33,9 +38,15 @@ const Home: NextPage = () => {
       </Head>
       <h1>L-Platform</h1>
       <CardContainer>
-        <Card />
-        <Card />
-        <Card />
+        {cursos?.map((curso) => (
+          <Card
+            key={curso.id}
+            name={curso.name}
+            price={curso.price}
+            imageURL={curso.imageUrl}
+            discount={curso.discount}
+          />
+        ))}
       </CardContainer>
     </div>
   );

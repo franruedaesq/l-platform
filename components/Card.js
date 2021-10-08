@@ -50,19 +50,15 @@ const Discount = styled.span`
   margin-left: 8px;
 `;
 
-function Card() {
+function Card({ name, price, imageURL, discount }) {
+  console.log({ name, price, imageURL, discount });
   return (
     <Container>
-      <Img
-        alt='Hey Arnold Porcelana'
-        src='https://scontent.fuaq1-1.fna.fbcdn.net/v/t39.30808-6/p526x296/242601084_3727037654187547_3130453637740674599_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=4wnU5vp6bYkAX_5dI0x&_nc_ht=scontent.fuaq1-1.fna&oh=c6083967f024f8f6e9c5228f30471146&oe=616552C6'
-        width={250}
-        height={300}
-      />
+      <Img alt='Hey Arnold Porcelana' src={imageURL} width={250} height={300} />
       <Body>
-        <Title>Hey Arnold</Title>
+        <Title>{name}</Title>
         <Price>
-          AR$900 <Discount>AR$1500</Discount>
+          AR${price} <Discount>AR${discount}</Discount>
         </Price>
         <Button content='Comprar ahora' />
       </Body>
